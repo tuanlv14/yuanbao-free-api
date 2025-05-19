@@ -66,7 +66,7 @@ import base64
 import requests
 from openai import OpenAI
 
-base_url = "http://localhost:5050/v1/"
+base_url = "http://localhost:8000/v1/"
 
 hy_source = "web"
 hy_user = ""    # 替换为你的用户ID
@@ -75,7 +75,7 @@ hy_token = ""   # 替换为你的token
 agent_id = "naQivTmsDa"
 chat_id = ""    # 可选，如果不提供会自动创建
 
-# upload
+# upload，可选
 url = base_url + "upload"
 
 file_name = "example.png"
@@ -141,6 +141,11 @@ for chunk in response:
 - 实时资讯搜索分析
 - 市场趋势数据集成
 - 结构化报告生成
+
+[CodexReel](https://github.com/chenwr727/CodexReel) 一个基于 AI 的智能视频生成平台：
+- 支持文章链接或主题文本输入（支持联网搜索）
+- 自动完成内容理解与脚本生成
+- 素材匹配、语音合成与视频剪辑一体化输出
 
 ## 📜 开源协议
 
