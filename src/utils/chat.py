@@ -57,9 +57,9 @@ async def process_response_stream(response: httpx.Response, model_id: str) -> As
             if chunk_data.get("stopReason"):
                 finish_reason = chunk_data["stopReason"]
         elif status == CHUNK_TYPE.REASONER:
-            yield _create_chunk(f"[{status}]" + chunk_data["content"])
+            yield _create_chunk(f"[{status}]" + chunk_data.get("content", ""))
         elif status == CHUNK_TYPE.SEARCH_WITH_TEXT:
             docs = chunk_data.get("docs", [])
             yield _create_chunk(f"[{status}]" + json.dumps(docs, ensure_ascii=False))
         if status == CHUNK_TYPE.STATUS:
-            yield _create_chunk(f"[{status}]" + chunk_data["msg"])
+            yield _create_chunk(f"[{status}]" + chunk_data.get("msg", ""))
